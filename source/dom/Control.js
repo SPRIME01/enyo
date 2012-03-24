@@ -267,7 +267,7 @@ enyo.kind({
 		// applied by layouts or other objects.
 		// We may need a 'runtimeStyles' concept separate from a 'userStyles' concept, although
 		// it's not clear what API calls like 'applyStyle' would affect, and which concept would take
-		// precendence when there is a conflict.
+		// precedence when there is a conflict.
 		// Perhaps we can separate 'style' completely from 'domStyles'. API methods like applyStyle 
 		// would affect domStyles, and the two style databases would be combined at render-time.
 		// Alternatively, we can disallow changing "style" string at runtime and allow it to be set 
@@ -717,13 +717,13 @@ enyo.Control.subclass = function(ctor, props) {
 	// Control classes may declare properties that are intended
 	// to stack with superclass properties.
 	//
-	// We resort to prototype magic to assemble thiese properties
+	// We resort to prototype magic to assemble these properties
 	// at kind declaration time, in the interest of efficiency
 	// and ease of use.
 	//
 	// However, the properties are no longer 'live' in prototypes 
 	// because  of this magic. I.e. changes to the prototype of 
-	// a Control subclass will not necesssarily be reflected in
+	// a Control subclass will not necessarily be reflected in
 	// instances of that Control (e.g. chained prototypes).
 	//
 	// These properties are also renamed to kind* to allow

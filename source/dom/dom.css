@@ -1,11 +1,14 @@
+/* things we always want */
+body {
+	-webkit-overflow-scrolling: touch;
+}
+
 /* for apps */
 .enyo-document-fit {
 	margin: 0;
 	height: 100%;
-	/*overflow: auto;*/
 	overflow: hidden;
 	position: relative;
-	-webkit-overflow-scrolling: touch;
 }
 
 /* reset */
@@ -46,4 +49,18 @@ body .enyo-fit {
 	top: 0;
 	right: 0;
 	bottom: 0;
+}
+
+.enyo-border-box {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+/* compositing */
+
+.enyo-composite {
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
 }

@@ -4,7 +4,7 @@ enyo.$ = {};
 enyo.dispatcher = {
 	// these events come from document
 	events: ["mousedown", "mouseup", "mouseover", "mouseout", "mousemove", "mousewheel", "click", "dblclick", "change", "keydown", "keyup", "keypress", "input"],
-	// thes events come from window
+	// these events come from window
 	windowEvents: ["resize", "load", "unload", "message"],
 	// feature plugins (aka filters)
 	features: [],
@@ -28,6 +28,9 @@ enyo.dispatcher = {
 			this.listen = function(inListener, inEvent, inCb) {
 				inListener.attachEvent("on" + inEvent, function(e) {
 					e.target = e.srcElement;
+					if (!e.preventDefault) {
+						e.preventDefault = enyo.iePreventDefault;
+					}
 					return d(e);
 				});
 			};
@@ -80,6 +83,11 @@ enyo.dispatcher = {
 		return c.bubble("on" + e.type, e, c);
 	}
 };
+
+// called in the context of an event
+enyo.iePreventDefault = function() {
+	this.returnValue = false;
+}
 
 enyo.dispatch = function(inEvent) {
 	return enyo.dispatcher.dispatch(inEvent);
